@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  ore_miner:
+    build: .
+    environment:
+      - http_proxy
+      - https_proxy
+      - INDEX=0 # This will be overridden for each container
+    command: sh -c "cd /usr/src/myapp && ./extract_keypair.sh && ./ore_loop.sh"
